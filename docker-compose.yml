@@ -1,0 +1,36 @@
+
+services:
+  mariadb:
+    image: mariadb:11.4
+    container_name: mariadb-aula
+    restart: unless-stopped
+    environment:
+      MARIADB_ROOT_PASSWORD: "MinhaSenha@123"
+      MARIADB_DATABASE: "sistema_reservas"
+      MARIADB_USER: "usuario_reservas"
+      MARIADB_PASSWORD: "Reserva@123"
+    volumes:
+      - dados_mariadb:/var/lib/mysql
+    networks:
+      - rede-reservas
+
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: phpmyadmin-aula
+    restart: unless-stopped
+    environment:
+      PMA_HOST: mariadb
+      PMA_PORT: 3306
+    ports:
+      - "127.0.0.1:8080:80"
+    depends_on:
+      - mariadb
+    networks:
+      - rede-reservas
+
+volumes:
+  dados_mariadb:
+
+networks:
+  rede-reservas:
+    driver: bridge
