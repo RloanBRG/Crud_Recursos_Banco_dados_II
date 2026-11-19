@@ -262,7 +262,7 @@ $recursos_list = $conexao->query("SELECT id_recurso, nome, tipo, localizacao FRO
             </div>
             <div class="flex items-center gap-space-md">
                 <span class="font-body-sm text-body-sm text-on-surface-variant hidden sm:inline">Olá, <strong><?= htmlspecialchars($_SESSION['usuario_nome'] ?? 'Usuário') ?></strong></span>
-                <a class="px-space-md py-space-sm font-label-md text-label-md text-error hover:bg-error-container/40 rounded-lg transition-colors" href="logout.php">
+                <a class="px-space-md py-space-sm font-label-md text-label-md text-error hover:bg-error-container/40 rounded-lg transition-colors" href="../api/logout.php">
                     Sair
                 </a>
             </div>

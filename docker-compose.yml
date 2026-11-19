@@ -5,10 +5,10 @@ services:
     container_name: mariadb-aula
     restart: unless-stopped
     environment:
-      MARIADB_ROOT_PASSWORD: "MinhaSenha@123"
-      MARIADB_DATABASE: "sistema_reservas"
-      MARIADB_USER: "usuario_reservas"
-      MARIADB_PASSWORD: "Reserva@123"
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     volumes:
       - dados_mariadb:/var/lib/mysql
     networks:
