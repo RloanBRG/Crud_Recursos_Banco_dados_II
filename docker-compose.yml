@@ -28,6 +28,21 @@ services:
     networks:
       - rede-reservas
 
+  web:
+      build:
+        context: .
+        dockerfile: Dockerfile
+      container_name: web-aula
+      restart: unless-stopped
+      ports:
+        - "127.0.0.1:8000:80"
+      volumes:
+        - ./:/var/www/html/
+      depends_on:
+        - mariadb
+      networks:
+        - rede-reservas
+
 volumes:
   dados_mariadb:
 
